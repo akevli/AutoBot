@@ -35,6 +35,58 @@ public class MainActivity extends AppCompatActivity {
         txtMobile = (EditText)findViewById(R.id.mblTxt);
         txtMessage = (EditText)findViewById(R.id.msgTxt);
         btnSms = (Button)findViewById(R.id.btnSend);
+        btnSms.setOnClickListener(new View.OnClickListener() {
+        public void onClick(View v) {
+            smsSend();
+        }
+        });
+        /*numberofmsg = (EditText)findViewById(R.id.nmbrMsg);
+        String value = numberofmsg.getText().toString();
+        try {
+            final int numValue = Integer.parseInt(value);
+            if (numValue >= 0) {
+                btnSms.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        try {
+                            for (int i = 0; i < numValue; i++) {
+                                SmsManager smgr = SmsManager.getDefault();
+                                smgr.sendTextMessage(txtMobile.getText().toString(), null, txtMessage.getText().toString(), null, null);
+                                if (i == (numValue - 1)) {
+                                    Toast.makeText(MainActivity.this, i + " SMS Messages Sent Successfully.", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Toast.makeText(MainActivity.this, "SMS Sent: " + i, Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        } catch (Exception e) {
+                            Toast.makeText(MainActivity.this, "SMS Failed to Send. Please try again", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+            } else {
+                Toast.makeText(MainActivity.this, "Negative Numerical Input. Pleas input a positive number.", Toast.LENGTH_SHORT).show();
+
+            }
+        }
+        catch (Exception e) {
+            Toast.makeText(MainActivity.this, "Invalid Numerical Input. Pleas try again", Toast.LENGTH_SHORT).show();
+        }*/
+
+
+        /*Button button = (Button) findViewById(R.id.Enter);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LaunchMainAction();
+            }
+        });*/
+
+
+    }
+    private void smsSend() {
+        txtMobile = (EditText)findViewById(R.id.mblTxt);
+        txtMessage = (EditText)findViewById(R.id.msgTxt);
+        btnSms = (Button)findViewById(R.id.btnSend);
         numberofmsg = (EditText)findViewById(R.id.nmbrMsg);
         String value = numberofmsg.getText().toString();
         try {
@@ -66,18 +118,8 @@ public class MainActivity extends AppCompatActivity {
         catch (Exception e) {
             Toast.makeText(MainActivity.this, "Invalid Numerical Input. Pleas try again", Toast.LENGTH_SHORT).show();
         }
-
-
-        /*Button button = (Button) findViewById(R.id.Enter);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                LaunchMainAction();
-            }
-        });*/
-
-
     }
+
     /*private void LaunchMainAction() {
         Intent intent = new Intent(this, MainAction.class);
         startActivity(intent);

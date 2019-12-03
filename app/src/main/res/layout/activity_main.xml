@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/ic_launcher_background"
+    android:background="?attr/colorControlHighlight"
     tools:context=".MainActivity">
 
     <TextView
@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Mobile Number"
-        android:textColor="#F80C0B0B"
+        android:textColor="@android:color/black"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -41,7 +41,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Message"
-        android:textColor="#141313"
+        android:textColor="@android:color/black"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -84,7 +84,7 @@
         android:fontFamily="monospace"
         android:text="Auto Bot"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="#F8000000"
+        android:textColor="@android:color/black"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -94,11 +94,11 @@
     <TextView
         android:id="@+id/textView"
         android:layout_width="185dp"
-        android:layout_height="47dp"
-        android:layout_marginTop="96dp"
+        android:layout_height="29dp"
+        android:layout_marginTop="65dp"
         android:layout_marginBottom="5dp"
         android:text="Number of Messages"
-        android:textColor="#161111"
+        android:textColor="@android:color/black"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/nmbrMsg"
         app:layout_constraintEnd_toEndOf="parent"
@@ -116,46 +116,15 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.407" />
 
-    <TextView
-        android:id="@+id/timeToSend"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="17dp"
-        android:layout_marginTop="22dp"
-        android:layout_marginEnd="311dp"
-        android:layout_marginBottom="11dp"
-        android:text="Time to Send"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/time"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/msgTxt" />
-
-    <EditText
-        android:id="@+id/time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="26dp"
-        android:layout_marginTop="11dp"
-        android:layout_marginEnd="172dp"
-        android:layout_marginBottom="219dp"
-        android:ems="10"
-        android:inputType="time"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/timeToSend" />
-
     <ProgressBar
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="307dp"
         android:layout_height="16dp"
         android:layout_marginStart="55dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="27dp"
         android:layout_marginEnd="55dp"
-        android:layout_marginBottom="47dp"
+        android:layout_marginBottom="216dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -166,15 +135,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="22dp"
-        android:layout_marginTop="109dp"
+        android:layout_marginTop="33dp"
         android:layout_marginEnd="334dp"
-        android:layout_marginBottom="21dp"
+        android:layout_marginBottom="27dp"
         android:text="Progress"
         android:textColor="#000000"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/progressBar"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.375"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/time" />
+        app:layout_constraintTop_toBottomOf="@+id/msgTxt" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
