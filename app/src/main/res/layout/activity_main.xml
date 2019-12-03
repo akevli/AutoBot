@@ -93,20 +93,17 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="98dp"
-        android:layout_height="52dp"
-        android:layout_marginStart="160dp"
-        android:layout_marginTop="211dp"
-        android:layout_marginEnd="18dp"
-        android:layout_marginBottom="16dp"
+        android:layout_width="185dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="96dp"
+        android:layout_marginBottom="5dp"
         android:text="Number of Messages"
         android:textColor="#161111"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/nmbrMsg"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/fstTxt"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/mblTxt"
+        app:layout_constraintTop_toBottomOf="@+id/AutoBot" />
 
     <EditText
         android:id="@+id/nmbrMsg"
