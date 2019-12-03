@@ -4,15 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:drawable/sym_def_app_icon"
+    android:background="@drawable/ic_launcher_background"
     tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/fstTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Mobile No"
+        android:text="Mobile Number"
         android:textColor="#F80C0B0B"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.046"
@@ -24,13 +25,16 @@
         android:id="@+id/mblTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="16dp"
         android:ems="10"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.131"
+        android:inputType="phone"
+        app:layout_constraintBottom_toTopOf="@+id/secTxt"
+        app:layout_constraintEnd_toStartOf="@+id/nmbrMsg"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.406" />
+        app:layout_constraintTop_toBottomOf="@+id/fstTxt" />
 
     <TextView
         android:id="@+id/secTxt"
@@ -38,6 +42,7 @@
         android:layout_height="wrap_content"
         android:text="Message"
         android:textColor="#141313"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.045"
@@ -76,29 +81,25 @@
         android:layout_marginStart="131dp"
         android:layout_marginTop="52dp"
         android:layout_marginEnd="117dp"
-        android:layout_marginBottom="137dp"
         android:fontFamily="monospace"
         android:text="Auto Bot"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="#F8000000"
         android:textSize="30sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/mblTxt"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="138dp"
-        android:layout_height="15dp"
+        android:layout_width="98dp"
+        android:layout_height="52dp"
         android:text="Number of Messages"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.895"
-        app:layout_constraintStart_toEndOf="@+id/fstTxt"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.347" />
+        android:textColor="#161111"
+        android:textSize="18sp"
+        tools:layout_editor_absoluteX="295dp"
+        tools:layout_editor_absoluteY="228dp" />
 
     <EditText
         android:id="@+id/nmbrMsg"
@@ -108,8 +109,6 @@
         android:inputType="number"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.448"
-        app:layout_constraintStart_toEndOf="@+id/mblTxt"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.407" />
 
@@ -123,6 +122,7 @@
         android:layout_marginBottom="11dp"
         android:text="Time to Send"
         android:textColor="#000000"
+        android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/time"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -165,6 +165,7 @@
         android:layout_marginBottom="21dp"
         android:text="Progress"
         android:textColor="#000000"
+        android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/progressBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
