@@ -22,8 +22,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
+    // SMS Manager API &
     private EditText txtMobile;
     private EditText txtMessage;
+    private EditText numberofmsg;
     private Button btnSms;
 
     @Override
@@ -33,19 +35,34 @@ public class MainActivity extends AppCompatActivity {
         txtMobile = (EditText)findViewById(R.id.mblTxt);
         txtMessage = (EditText)findViewById(R.id.msgTxt);
         btnSms = (Button)findViewById(R.id.btnSend);
-        btnSms.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                try{
-                    SmsManager smgr = SmsManager.getDefault();
-                    smgr.sendTextMessage(txtMobile.getText().toString(),null,txtMessage.getText().toString(),null,null);
-                    Toast.makeText(MainActivity.this, "SMS Sent Successfully", Toast.LENGTH_SHORT).show();
-                }
-                catch (Exception e){
-                    Toast.makeText(MainActivity.this, "SMS Failed to Send, Please try again", Toast.LENGTH_SHORT).show();
-                }
+        numberofmsg = (EditText)findViewById(R.id.nmbrMsg);
+        String value = numberofmsg.getText().toString();
+        if (!value.equals("")) {
+            final int numValue = Integer.parseInt(value);
+            if (numValue >= 0) {
+                btnSms.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        try{
+                            for (int i = 0; i < numValue; i++) {
+                                SmsManager smgr = SmsManager.getDefault();
+                                smgr.sendTextMessage(txtMobile.getText().toString(), null, txtMessage.getText().toString(), null, null);
+                                Toast.makeText(MainActivity.this, "SMS Sent Successfully", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                        catch (Exception e){
+                            Toast.makeText(MainActivity.this, "SMS Failed to Send. Please try again", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+            } else {
+                Toast.makeText(MainActivity.this, "Negative Numerical Input. Pleas input a positive number.", Toast.LENGTH_SHORT).show();
+
             }
-        });
+        } else {
+            Toast.makeText(MainActivity.this, "Invalid Numerical Input. Pleas try again", Toast.LENGTH_SHORT).show();
+        }
+
 
         /*Button button = (Button) findViewById(R.id.Enter);
         button.setOnClickListener(new View.OnClickListener() {
@@ -54,15 +71,10 @@ public class MainActivity extends AppCompatActivity {
                 LaunchMainAction();
             }
         });*/
-        String[] arraySpinner = new String[] {
-                "1", "2", "3", "4", "5", "6", "7"
-        };
-        Spinner s = (Spinner) findViewById(R.id.numberofmsg);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item, arraySpinner);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        s.setAdapter(adapter);
 
+
+    }
+    private void sendSMS(final int number, final String message) {
 
     }
     /*private void LaunchMainAction() {
