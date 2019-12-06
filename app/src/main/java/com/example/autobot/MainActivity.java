@@ -92,10 +92,10 @@ public class MainActivity extends AppCompatActivity {
         try {
             final int numValue = Integer.parseInt(value);
             if (numValue >= 0) {
-                for (int i = 0; i < numValue; i++) {
+                for (int i = 1; i <= numValue; i++) {
                     SmsManager smgr = SmsManager.getDefault();
                     smgr.sendTextMessage(txtMobile.getText().toString(), null, txtMessage.getText().toString(), null, null);
-                    if (i == (numValue - 1)) {
+                    if (i == (numValue)) {
                         Toast.makeText(MainActivity.this, i + " SMS Messages Sent Successfully.", Toast.LENGTH_SHORT).show();
                     } else {
                         Toast.makeText(MainActivity.this, "SMS Sent: " + i, Toast.LENGTH_SHORT).show();
