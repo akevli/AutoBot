@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText numberofmsg;
     private Button btnSms;
     private ProgressBar progressBar;
+    private int increment = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
         String value = numberofmsg.getText().toString();
         try {
             final int numValue = Integer.parseInt(value);
-            int increment = 100 / numValue;
+            increment = 100 / numValue;
             final int inc = increment;
             if (numValue >= 0) {
                 for (int i = 1; i <= numValue; i++) {
