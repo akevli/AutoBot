@@ -140,7 +140,7 @@
         android:layout_marginTop="33dp"
         android:layout_marginEnd="334dp"
         android:layout_marginBottom="27dp"
-        android:text="Progress:"
+        android:text="Process:"
         android:textColor="#000000"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/progressBar"
