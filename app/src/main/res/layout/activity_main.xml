@@ -93,19 +93,18 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="185dp"
-        android:layout_height="29dp"
-        android:layout_marginTop="65dp"
-        android:layout_marginBottom="5dp"
+        android:layout_width="174dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="99dp"
+        android:layout_marginBottom="12dp"
         android:text="Number of Messages"
         android:textColor="@android:color/black"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/nmbrMsg"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.916"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/mblTxt"
-        app:layout_constraintTop_toBottomOf="@+id/AutoBot"
-        app:layout_constraintVertical_bias="0.944" />
+        app:layout_constraintTop_toBottomOf="@+id/AutoBot" />
 
     <EditText
         android:id="@+id/nmbrMsg"
@@ -154,18 +153,18 @@
     <TextView
         android:id="@+id/loading"
         android:layout_width="100dp"
-        android:layout_height="29dp"
-        android:layout_marginStart="10dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="9dp"
         android:layout_marginTop="23dp"
-        android:layout_marginEnd="211dp"
+        android:layout_marginEnd="224dp"
         android:layout_marginBottom="34dp"
+        android:text="fdf"
         android:textColor="#181717"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/progressBar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/progress"
         app:layout_constraintTop_toBottomOf="@+id/msgTxt"
-        app:layout_constraintVertical_bias="0.142" />
+        app:layout_constraintVertical_bias="0.083" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
