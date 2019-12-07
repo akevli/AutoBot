@@ -43,8 +43,11 @@ public class MainActivity extends AppCompatActivity {
         loading.setVisibility(View.INVISIBLE);
         btnSms.setOnClickListener(new View.OnClickListener() {
         public void onClick(View v) {
+            progressBar.setProgress(0);
             loading.setVisibility(View.VISIBLE);
+            loading.setText("In Progress");
             smsSend();
+            progressBar.setProgress(100);
         }
         });
         /*numberofmsg = (EditText)findViewById(R.id.nmbrMsg);
@@ -109,7 +112,6 @@ public class MainActivity extends AppCompatActivity {
                     //increment += inc;
                     if (i == (numValue)) {
                         Toast.makeText(MainActivity.this, i + " SMS Messages Sent Successfully.", Toast.LENGTH_SHORT).show();
-                        progressBar.setProgress(100);
                         loading.setText("Complete");
                     } else {
                         Toast.makeText(MainActivity.this, "SMS Sent: " + i, Toast.LENGTH_SHORT).show();
