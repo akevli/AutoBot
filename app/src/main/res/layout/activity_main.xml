@@ -95,7 +95,6 @@
         android:id="@+id/textView"
         android:layout_width="174dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="99dp"
         android:layout_marginBottom="12dp"
         android:text="Number of Messages"
         android:textColor="@android:color/black"
@@ -103,8 +102,9 @@
         app:layout_constraintBottom_toTopOf="@+id/nmbrMsg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/mblTxt"
-        app:layout_constraintTop_toBottomOf="@+id/AutoBot" />
+        app:layout_constraintStart_toEndOf="@+id/fstTxt"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <EditText
         android:id="@+id/nmbrMsg"
@@ -157,7 +157,7 @@
         android:layout_marginStart="9dp"
         android:layout_marginTop="23dp"
         android:layout_marginEnd="224dp"
-        android:layout_marginBottom="34dp"
+        android:layout_marginBottom="27dp"
         android:textColor="#181717"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/progressBar"
