@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         txtMessage = (EditText)findViewById(R.id.msgTxt);
         btnSms = (Button)findViewById(R.id.btnSend);
         loading = (TextView)findViewById(R.id.loading);
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
         loading.setVisibility(View.INVISIBLE);
         btnSms.setOnClickListener(new View.OnClickListener() {
         public void onClick(View v) {
