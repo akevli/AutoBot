@@ -2,35 +2,23 @@ package com.example.autobot;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
-import android.widget.Spinner;
 import android.widget.TextView;
-
-import android.content.Intent;
-import android.net.Uri;
-import android.provider.Telephony;
-import android.support.v4.app.*;
-import android.os.Bundle;
 import android.telephony.SmsManager;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
-    // SMS Manager API &
     private EditText txtMobile;
     private EditText txtMessage;
     private EditText numberofmsg;
     private Button btnSms;
     private TextView loading;
     private ProgressBar progressBar;
-    private int increment = 0;
+    private int increment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,10 +33,7 @@ public class MainActivity extends AppCompatActivity {
         btnSms.setOnClickListener(new View.OnClickListener() {
         public void onClick(View v) {
             progressBar.setProgress(0);
-            loading.setVisibility(View.VISIBLE);
-            loading.setText("In Progress");
             smsSend();
-            progressBar.setProgress(100);
         }
         });
         /*numberofmsg = (EditText)findViewById(R.id.nmbrMsg);
@@ -100,23 +85,35 @@ public class MainActivity extends AppCompatActivity {
         btnSms = (Button)findViewById(R.id.btnSend);
         numberofmsg = (EditText)findViewById(R.id.nmbrMsg);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        loading = (TextView)findViewById(R.id.loading);
+        loading.setVisibility(View.INVISIBLE);
         String value = numberofmsg.getText().toString();
+        Handler handler1 = new Handler();
         try {
+            loading.setVisibility(View.VISIBLE);
+            loading.setText("In Progress");
             final int numValue = Integer.parseInt(value);
-            //increment = 100 / numValue;
-            //final int inc = increment;
+            increment = 100 / numValue;
+            final int inc = increment;
             if (numValue >= 0) {
-                for (int i = 1; i <= numValue; i++) {
-                    SmsManager smgr = SmsManager.getDefault();
-                    smgr.sendTextMessage(txtMobile.getText().toString(), null, txtMessage.getText().toString(), null, null);
-                    //progressBar.setProgress(increment);
-                    //increment += inc;
-                    if (i == (numValue)) {
-                        Toast.makeText(MainActivity.this, i + " SMS Messages Sent Successfully.", Toast.LENGTH_SHORT).show();
-                        loading.setText("Complete");
-                    } else {
-                        Toast.makeText(MainActivity.this, "SMS Sent: " + i, Toast.LENGTH_SHORT).show();
-                    }
+                for (int i = 0; i < numValue; i++) {
+                    int j = i;
+                    handler1.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            SmsManager smgr = SmsManager.getDefault();
+                            smgr.sendTextMessage(txtMobile.getText().toString(), null, txtMessage.getText().toString(), null, null);
+                            progressBar.setProgress(increment * (j + 1));
+                            //increment += inc;
+                            if ((j + 1) == (numValue)) {
+                                Toast.makeText(MainActivity.this, (j + 1) + " SMS Messages Sent Successfully.", Toast.LENGTH_SHORT).show();
+                                loading.setText("Complete");
+                                progressBar.setProgress(100);
+                            } else {
+                                Toast.makeText(MainActivity.this, "SMS Sent: " + (j + 1), Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    }, 2000 * i);
                 }
             }
         } catch (Exception e) {
