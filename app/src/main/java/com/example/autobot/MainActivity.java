@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText txtMessage;
     private EditText numberofmsg;
     private Button btnSms;
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,14 +90,20 @@ public class MainActivity extends AppCompatActivity {
         txtMessage = (EditText)findViewById(R.id.msgTxt);
         btnSms = (Button)findViewById(R.id.btnSend);
         numberofmsg = (EditText)findViewById(R.id.nmbrMsg);
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
         String value = numberofmsg.getText().toString();
         try {
             final int numValue = Integer.parseInt(value);
+            int increment = 100 / numValue;
+            final int inc = increment;
             if (numValue >= 0) {
                 for (int i = 1; i <= numValue; i++) {
                     SmsManager smgr = SmsManager.getDefault();
                     smgr.sendTextMessage(txtMobile.getText().toString(), null, txtMessage.getText().toString(), null, null);
+                    progressBar.setProgress(increment);
+                    increment += inc;
                     if (i == (numValue)) {
+                        progressBar.setProgress(100);
                         Toast.makeText(MainActivity.this, i + " SMS Messages Sent Successfully.", Toast.LENGTH_SHORT).show();
                     } else {
                         Toast.makeText(MainActivity.this, "SMS Sent: " + i, Toast.LENGTH_SHORT).show();
