@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText txtMessage;
     private EditText numberofmsg;
     private Button btnSms;
+    private TextView loading;
     private ProgressBar progressBar;
     private int increment = 0;
 
@@ -38,8 +39,11 @@ public class MainActivity extends AppCompatActivity {
         txtMobile = (EditText)findViewById(R.id.mblTxt);
         txtMessage = (EditText)findViewById(R.id.msgTxt);
         btnSms = (Button)findViewById(R.id.btnSend);
+        loading = (TextView)findViewById(R.id.loading);
+        loading.setVisibility(View.INVISIBLE);
         btnSms.setOnClickListener(new View.OnClickListener() {
         public void onClick(View v) {
+            loading.setVisibility(View.VISIBLE);
             smsSend();
         }
         });
@@ -95,17 +99,18 @@ public class MainActivity extends AppCompatActivity {
         String value = numberofmsg.getText().toString();
         try {
             final int numValue = Integer.parseInt(value);
-            increment = 100 / numValue;
-            final int inc = increment;
+            //increment = 100 / numValue;
+            //final int inc = increment;
             if (numValue >= 0) {
                 for (int i = 1; i <= numValue; i++) {
                     SmsManager smgr = SmsManager.getDefault();
                     smgr.sendTextMessage(txtMobile.getText().toString(), null, txtMessage.getText().toString(), null, null);
-                    progressBar.setProgress(increment);
-                    increment += inc;
+                    //progressBar.setProgress(increment);
+                    //increment += inc;
                     if (i == (numValue)) {
-                        progressBar.setProgress(100);
                         Toast.makeText(MainActivity.this, i + " SMS Messages Sent Successfully.", Toast.LENGTH_SHORT).show();
+                        progressBar.setProgress(100);
+                        loading.setText("Complete");
                     } else {
                         Toast.makeText(MainActivity.this, "SMS Sent: " + i, Toast.LENGTH_SHORT).show();
                     }

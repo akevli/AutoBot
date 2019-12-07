@@ -140,7 +140,7 @@
         android:layout_marginTop="33dp"
         android:layout_marginEnd="334dp"
         android:layout_marginBottom="27dp"
-        android:text="Progress"
+        android:text="Progress:"
         android:textColor="#000000"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/progressBar"
@@ -148,5 +148,13 @@
         app:layout_constraintHorizontal_bias="0.375"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/msgTxt" />
+
+    <TextView
+        android:id="@+id/loading"
+        android:layout_width="100dp"
+        android:layout_height="29dp"
+        android:text="In Progress"
+        tools:layout_editor_absoluteX="99dp"
+        tools:layout_editor_absoluteY="439dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
